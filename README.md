@@ -19,13 +19,13 @@ optimize the weights of a 4-asset equity portfolio.
 
 ## Table of Contents
 - [Overview](#overview)
-- [Mathematical Formulation](#mathematical-formulation)
+- [The Theory: Markowitz Mean-Variance Optimization](#the-theory-markowitz-mean-variance-optimization)
 - [The Heuristic Approach: Monte Carlo Simulation](#the-heuristic-approach-monte-carlo-simulation)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
 - [Notebook Walkthrough](#notebook-walkthrough)
-- [Example Output](#example-output)
+- [Results](#results)
 - [Future Work / Roadmap](#future-work--roadmap)
 - [About the Author](#about-the-author)
 - [Disclaimer](#disclaimer)
@@ -51,55 +51,30 @@ The notebook allows the user to:
 
 ---
 
-## Mathematical Formulation
+## The Theory: Markowitz Mean-Variance Optimization
 
 Harry Markowitz (1952) formalized the idea that **risk and return cannot be
 evaluated in isolation**. For a portfolio of $N$ assets with expected returns
-$\mu \in \mathbb{R}^N$ and covariance matrix $\Sigma \in \mathbb{R}^{N \times N}$,
-and weights $w \in \mathbb{R}^N$:
+$\mu$ and covariance matrix $\Sigma$:
 
-**Portfolio expected return**
+- **Portfolio expected return:**
+  $$\mu_p = \sum_{i=1}^{N} w_i \mu_i = w^T \mu$$
 
-$$
-\mu_p = \sum_{i=1}^{N} w_i \mu_i = w^T \mu
-$$
+- **Portfolio variance (risk):**
+  $$\sigma_p^2 = \sum_{i=1}^{N} \sum_{j=1}^{N} w_i w_j \sigma_{ij} = w^T \Sigma w$$
 
-**Portfolio variance (risk)**
-
-$$
-\sigma_p^2 = \sum_{i=1}^{N} \sum_{j=1}^{N} w_i w_j \sigma_{ij} = w^T \Sigma w
-$$
-
-**Constraints**
-
-$$
-\sum_{i=1}^{N} w_i = 1, \qquad w_i \ge 0 \quad \forall i
-$$
-
-### The two canonical problems
-
-**1. Minimum-Variance portfolio**
-
-$$
-\min_{w} \; w^T \Sigma w
-\quad \text{s.t.} \quad \mathbf{1}^T w = 1, \;\; w \ge 0
-$$
-
-**2. Maximum-Sharpe (tangency) portfolio**
-
-$$
-\max_{w} \; \frac{w^T \mu - r_f}{\sqrt{w^T \Sigma w}}
-\quad \text{s.t.} \quad \mathbf{1}^T w = 1, \;\; w \ge 0
-$$
+where $w$ is the vector of weights, subject to $\sum_i w_i = 1$ and (optionally)
+$w_i \ge 0$ (no short-selling).
 
 The **Efficient Frontier** is the set of portfolios that offer the **highest
-expected return for a given level of risk** (equivalently, the lowest risk for a
-given return). Any portfolio below the frontier is sub-optimal. The
-**tangency portfolio** is the point on the frontier that maximizes the
-**Sharpe ratio**, the standard risk-adjusted performance metric.
+expected return for a given level of risk** (or the lowest risk for a given
+return). Any portfolio below the frontier is sub-optimal. The **tangency
+portfolio** (Maximum Sharpe Ratio) is the point on the frontier that maximizes
+risk-adjusted return:
 
-> In **V1**, these two problems are *approximated* by random sampling. In **V2**,
-> they will be solved **exactly** as convex programs (see [Roadmap](#future-work--roadmap)).
+$$ \text{Sharpe} = \frac{\mu_p - r_f}{\sigma_p} $$
+
+The **Minimum Variance Portfolio** is the leftmost point of the frontier.
 
 ---
 
