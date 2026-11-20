@@ -21,9 +21,8 @@
 4. [Methodology: Monte Carlo Approach](#-methodology-monte-carlo-approach)
 5. [Results](#-results)
 6. [Limitations of V1](#-limitations-of-v1)
-7. [Future Work / Roadmap](#-future-work--roadmap)
-8. [Installation & Usage](#-installation--usage)
-9. [Tech Stack](#-tech-stack)
+7. [Installation & Usage](#-installation--usage)
+8. [Tech Stack](#-tech-stack)
 
 ---
 
@@ -86,7 +85,7 @@ where $R_f$ is the risk-free rate (set to **2%** in this project because interes
 
 ### Efficient Frontier
 
-The **efficient frontier** is the set of portfolios that offer the **highest expected return for a given level of risk** (equivalently, the lowest risk for a given expected return). Any portfolio below the frontier is *sub-optimal*
+The **efficient frontier** is the set of portfolios that offer the **highest expected return for a given level of risk** (equivalently, the lowest risk for a given expected return). Any portfolio below the frontier is *sub-optimal*.
 
 ---
 
@@ -130,13 +129,13 @@ Example output for a portfolio of **AAPL, GLD, META and ADBE** (daily data 2015�
 
 | Portfolio Metric | Value |
 |:-----------------|:-----:|
-| Expected Annual Return | ≈ 15.7%* |
-| Annual Volatility | ≈ 14,07%* |
+| Expected Annual Return | ≈ 15.17%* |
+| Annual Volatility | ≈ 14.07%* |
 | **Sharpe Ratio (max)** | **0.94** |
 
 ![Efficient Frontier](./assets/efficient_frontier.png)
 
-<sub>*Note the instability of the frontier at high volatility: random sampling under-populates concentrated portfolios, which is one of the motivations for the exact QP solution in V2.</sub>
+<sub>The instability of the frontier at high volatility: random sampling under-populates concentrated portfolios, which is one of the motivations for the exact QP solution in V2.</sub>
 
 ### 🧠 Key Observations
 
@@ -167,18 +166,18 @@ These limitations are what motivate Version 2.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/Portfolio-Optimization-Markowitz.git
+git clone https://github.com/a-pagola/Portfolio-Optimization-Markowitz.git
 cd Portfolio-Optimization-Markowitz
 
-# 2. (Optional) Create a virtual environment
+# 2. (Recommended) Create and activate a virtual environment
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 
 # 3. Install dependencies
-pip install pandas numpy matplotlib seaborn yfinance ipywidgets jupyter
+pip install -r requirements.txt
 
 # 4. Launch the notebook
-jupyter notebook portfolio-optimization-montecarlo.ipynb
+jupyter lab portfolio-optimization-montecarlo.ipynb
 ```
 
 **How to use it:**
@@ -186,6 +185,8 @@ jupyter notebook portfolio-optimization-montecarlo.ipynb
 1. Run the first cells to load the libraries and the asset selector.
 2. Choose **4 distinct assets** from the dropdown menus and click **Download data**.
 3. Run the remaining cells to explore the data, run the simulation and visualise the efficient frontier and the optimal weights.
+
+> **Note:** Price data is downloaded live from Yahoo Finance via `yfinance`, so an internet connection is required. Results vary slightly between runs unless a random seed is fixed.
 
 ---
 
@@ -204,7 +205,7 @@ jupyter notebook portfolio-optimization-montecarlo.ipynb
 
 📫 **Connect with me:**
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/antonio-pagola-barrio-827a91349/)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/<a-pagola>)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/a-pagola)
 
 ---
 
