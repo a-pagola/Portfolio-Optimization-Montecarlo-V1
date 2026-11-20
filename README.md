@@ -7,7 +7,6 @@
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Domain](https://img.shields.io/badge/Domain-Quantitative%20Finance-0A66C2?style=for-the-badge)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 </div>
 
@@ -49,9 +48,6 @@ This repository is the **first step of that journey**: a rigorous, reproducible 
 - Identifies the **maximum Sharpe Ratio portfolio** and plots it against the frontier.
 
 📓 **Notebook:** [`portfolio-optimization-montecarlo.ipynb`](./portfolio-optimization-montecarlo.ipynb)
-
-<!-- Add your efficient frontier plot here -->
-<!-- ![Efficient Frontier](./assets/efficient_frontier.png) -->
 
 ---
 
@@ -112,7 +108,7 @@ for it in range(num_iter):
     sp[it]        = (ret_portf[it] - ret_fix) / vol_portf[it]
 ```
 
-By the law of large numbers, with enough random samples the cloud of portfolios densely covers the feasible region, so its upper boundary converges towards the true efficient frontier.
+With enough random samples, the cloud of portfolios covers most of the feasible region and its upper boundary approximates the efficient frontier, although less accurately at the extremes (see Limitations).
 
 ---
 
@@ -129,8 +125,8 @@ Example output for a portfolio of **AAPL, GLD, META and ADBE** (daily data 2015�
 
 | Portfolio Metric | Value |
 |:-----------------|:-----:|
-| Expected Annual Return | ≈ 15.17%* |
-| Annual Volatility | ≈ 14.07%* |
+| Expected Annual Return | 15.17% |
+| Annual Volatility | 14.07% |
 | **Sharpe Ratio (max)** | **0.94** |
 
 ![Efficient Frontier](./assets/efficient_frontier.png)
