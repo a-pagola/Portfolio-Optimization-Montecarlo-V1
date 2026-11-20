@@ -2,7 +2,7 @@
 
 # 📈 Portfolio-Optimization-Markowitz
 
-**Monte Carlo approximation of the Markowitz Efficient Frontier — from discretionary trading to quantitative finance.**
+**Monte Carlo approximation of the Markowitz Efficient Frontier.**
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Domain](https://img.shields.io/badge/Domain-Quantitative%20Finance-0A66C2?style=for-the-badge)
@@ -24,8 +24,6 @@
 7. [Future Work / Roadmap](#-future-work--roadmap)
 8. [Installation & Usage](#-installation--usage)
 9. [Tech Stack](#-tech-stack)
-10. [About the Author](#-about-the-author)
-11. [License](#-license)
 
 ---
 
