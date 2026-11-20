@@ -27,7 +27,7 @@
 
 ## 🎯 Project Motivation & My Transition
 
-I am an Electrical Engineer with **3 years of experience as a discretionary trader** on a **real, audited account**, closing that period with a **Profit Factor of 1.27** and an average **Risk/Reward ratio of 1:2**.
+I am an Electrical Engineer with **3 years studying discretionary trading**, and one year trading a **tracked real account**, closing 2025 with a **Profit Factor of 1.27**, an average **Risk/Reward ratio of 1:2**, and a **maximum drawdown of -1.60%**.
 
 On paper, the system was profitable. In practice, I realised it was **not sustainable in the long run**. The edge depended on my own judgement, and judgement is vulnerable to fatigue, loss aversion, overconfidence, recency bias and inconsistent execution. Two identical setups could lead to two different decisions depending on my state of mind. A strategy that cannot be executed consistently cannot be reliably measured, improved, or scaled.
 
