@@ -128,16 +128,20 @@ Example output for a portfolio of **AAPL, GLD, META and ADBE** (daily data 2015�
 
 | Asset | Optimal Weight |
 |:------|:--------------:|
-| **AAPL** (Apple) | 33.87% |
-| **GLD** (Gold ETF) | 61.77% |
-| **META** (Meta Platforms) | 3.09% |
-| **ADBE** (Adobe) | 1.28% |
+| **AAPL** (Apple) | 32.14% |
+| **GLD** (Gold ETF) | 63.02% |
+| **META** (Meta Platforms) | 4.72% |
+| **ADBE** (Adobe) | 0.12% |
 
 | Portfolio Metric | Value |
 |:-----------------|:-----:|
-| Expected Annual Return | ≈ 14.7%* |
-| Annual Volatility | ≈ 13.6%* |
-| **Sharpe Ratio (max)** | **0.93** |
+| Expected Annual Return | ≈ 15.7%* |
+| Annual Volatility | ≈ 14,07%* |
+| **Sharpe Ratio (max)** | **0.94** |
+
+![Efficient Frontier](./assets/efficient_frontier.png)
+
+Note the instability of the frontier at high volatility: random sampling under-populates concentrated portfolios, which is one of the motivations for the exact QP solution in V2
 
 <sub>*Return and volatility figures are illustrative approximations consistent with the simulated Sharpe Ratio. Weights and the Sharpe Ratio are taken directly from the notebook output. Results vary between runs because of the stochastic nature of the method, and they depend on the selected assets and sample period.</sub>
 
@@ -163,39 +167,6 @@ Transparency about methodology is a core part of quantitative work. V1 has sever
 | **Simplified assumptions** | No transaction costs, taxes, slippage or rebalancing. Returns are treated as well described by their first two moments. |
 
 These limitations are what motivate Version 2.
-
----
-
-## 🚀 Future Work / Roadmap
-
-> **Version 2 (V2) is currently in development.**
-
-The goal of V2 is to **remove randomness from the optimisation** and solve the problem exactly using **convex optimisation with [`cvxpy`](https://www.cvxpy.org/)**.
-
-### V2: Exact Optimisation via Quadratic Programming
-
-Since $\Sigma$ is symmetric positive semi-definite, the Markowitz problem is a **convex Quadratic Program (QP)**, so it has a global optimum that can be found efficiently and deterministically:
-
-$$
-\begin{aligned}
-\min_{\mathbf{w}} \quad & \mathbf{w}^\top \Sigma \, \mathbf{w} \\
-\text{s.t.} \quad & \boldsymbol{\mu}^\top \mathbf{w} \ge \mu_{\text{target}} \\
-& \mathbf{1}^\top \mathbf{w} = 1 \\
-& \mathbf{w} \ge 0
-\end{aligned}
-$$
-
-Solving this for a range of $\mu_{\text{target}}$ values traces the **exact efficient frontier**. The maximum Sharpe Ratio portfolio can be recovered through a convex reformulation (rescaling to $\mathbf{y} = \mathbf{w}/\kappa$, which keeps the problem a QP).
-
-### Roadmap
-
-- [x] **V1:** Monte Carlo simulation, interactive asset selector, Sharpe Ratio maximisation
-- [ ] **V2:** Exact QP formulation with `cvxpy`, deterministic efficient frontier
-- [ ] **V2:** Minimum-variance and maximum-Sharpe portfolios, with a side-by-side comparison against the V1 Monte Carlo estimate
-- [ ] **V2:** Realistic constraints: position limits, sector exposure, turnover, transaction costs
-- [ ] **V2:** Scale from 4 assets to a larger universe (e.g. S&P 500 constituents)
-- [ ] **V3:** Robust estimation (Ledoit-Wolf covariance shrinkage) and out-of-sample **walk-forward backtesting**
-- [ ] **V3:** Alternative risk measures (CVaR) and Black-Litterman views
 
 ---
 
@@ -246,11 +217,9 @@ I hold a background in Electrical Engineering, which gave me a strong foundation
 
 I am now focused on building the quantitative toolkit (statistics, optimisation, stochastic modelling and algorithmic trading) to make investment decisions **objective, testable and reproducible**.
 
-🎯 **Goal:** Pursue a Master's in Quantitative Finance at **Erasmus University Rotterdam**.
-
 📫 **Connect with me:**
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/<your-profile>)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/<your-username>)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/antonio-pagola-barrio-827a91349/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/<a-pagola>)
 
 ---
 
@@ -263,7 +232,5 @@ This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE)
 <div align="center">
 
 ⚠️ **Disclaimer:** This project is for educational and research purposes only and does not constitute financial advice.
-
-⭐ If you find this project useful, consider giving it a star!
 
 </div>
