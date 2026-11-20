@@ -5,7 +5,6 @@
 **Monte Carlo approximation of the Markowitz Efficient Frontier — from discretionary trading to quantitative finance.**
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Status](https://img.shields.io/badge/Status-V1%20Complete%20%7C%20V2%20In%20Development-orange?style=for-the-badge)
 ![Domain](https://img.shields.io/badge/Domain-Quantitative%20Finance-0A66C2?style=for-the-badge)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
@@ -39,8 +38,6 @@ On paper, the system was profitable. In practice, I realised it was **not sustai
 That insight was the turning point. I decided to remove the human factor from the decision loop and replace intuition with **data, statistics and mathematical models**. This is my transition from *discretionary trading* to *algorithmic trading and quantitative finance*.
 
 This repository is the **first step of that journey**: a rigorous, reproducible treatment of one of the foundational problems of quantitative finance, **portfolio construction**. Rather than asking *"which assets feel right?"*, the question becomes *"what allocation maximises risk-adjusted return, given the data?"*
-
-> 🎓 This project is part of the portfolio I am building to apply to top-tier Quantitative Finance master's programmes.
 
 ---
 
@@ -87,11 +84,11 @@ $$
 \text{Sharpe} = \frac{\mu_p - R_f}{\sigma_p}
 $$
 
-where $R_f$ is the risk-free rate (set to **2%** in this project).
+where $R_f$ is the risk-free rate (set to **2%** in this project because interest rates are usually around this level).
 
 ### Efficient Frontier
 
-The **efficient frontier** is the set of portfolios that offer the **highest expected return for a given level of risk** (equivalently, the lowest risk for a given expected return). Any portfolio below the frontier is *sub-optimal*: it is possible to earn more return for the same risk.
+The **efficient frontier** is the set of portfolios that offer the **highest expected return for a given level of risk** (equivalently, the lowest risk for a given expected return). Any portfolio below the frontier is *sub-optimal*
 
 ---
 
@@ -141,9 +138,7 @@ Example output for a portfolio of **AAPL, GLD, META and ADBE** (daily data 2015�
 
 ![Efficient Frontier](./assets/efficient_frontier.png)
 
-Note the instability of the frontier at high volatility: random sampling under-populates concentrated portfolios, which is one of the motivations for the exact QP solution in V2
-
-<sub>*Return and volatility figures are illustrative approximations consistent with the simulated Sharpe Ratio. Weights and the Sharpe Ratio are taken directly from the notebook output. Results vary between runs because of the stochastic nature of the method, and they depend on the selected assets and sample period.</sub>
+<sub>*Note the instability of the frontier at high volatility: random sampling under-populates concentrated portfolios, which is one of the motivations for the exact QP solution in V2.</sub>
 
 ### 🧠 Key Observations
 
@@ -205,27 +200,13 @@ jupyter notebook portfolio-optimization-montecarlo.ipynb
 | **Visualisation** | `matplotlib`, `seaborn` |
 | **Market Data** | `yfinance` |
 | **Interactivity** | `ipywidgets`, Jupyter Notebook |
-| **Planned (V2)** | `cvxpy`, `scipy` |
+| **Planned (V2)** | `cvxpy` |
 
 ---
-
-## 👤 About the Author
-
-**Electrical Engineer · Discretionary Trader turned Quantitative Finance Candidate**
-
-I hold a background in Electrical Engineering, which gave me a strong foundation in mathematics, signal analysis and systems thinking. I spent **3 years trading discretionarily on a real, audited account** (Profit Factor 1.27, Risk/Reward 1:2). That experience taught me, first-hand, the limits of intuition-driven decisions and the value of a systematic, data-driven process.
-
-I am now focused on building the quantitative toolkit (statistics, optimisation, stochastic modelling and algorithmic trading) to make investment decisions **objective, testable and reproducible**.
 
 📫 **Connect with me:**
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/antonio-pagola-barrio-827a91349/)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/<a-pagola>)
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
 
 ---
 
